@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import styles from './page.module.css'
 import Image from "next/image";
+import { fonts } from './fonts';
 
 export const metadata: Metadata = {
   title: 'naokiwakata.com',
@@ -22,8 +23,8 @@ export default function Page() {
           <Link href={"https://x.com/wakanao_banana"}>
             <p>X</p>
           </Link>
-          <p>Naoki Wakata（@wakanao_banana）のプロフィールページです</p>
-          <p>Flutter/Dart,Android/Kotlin,iOS/Swift のモバイルアプリエンジニアをしています</p>
+          <p className={fonts.notoSansJP.variable}>Naoki Wakata（@wakanao_banana）のプロフィールページです</p>
+          <p className={fonts.montserrat.variable}>Flutter/Dart,Android/Kotlin,iOS/Swift のモバイルアプリエンジニアをしています</p>
           <p>本業では月間アクティブユーザーが数十万人のAndroid/iOSのアプリ開発に運用に携わっています。また副業ではFlutterでのアプリ開発・講師業を行っています</p>
           <p>個人では月間アクティブユーザー数が1~2万人の「ラーメン二郎好きのためのアプリ」をFlutter・Firebaseにて運用中です</p>
         </section>

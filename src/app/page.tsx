@@ -3,6 +3,8 @@ import {
   ChakraBaseProvider,
   extendBaseTheme,
   theme as chakraTheme,
+  Box,
+  Heading,
 } from '@chakra-ui/react';
 
 export const metadata: Metadata = {
@@ -20,9 +22,9 @@ const theme = extendBaseTheme({
 
 export default function Page() {
   return (
-    <ChakraBaseProvider theme={theme}>
-      <Text>テキスト</Text>
-    </ChakraBaseProvider>
+    <Box>
+      <Heading>Chakra UI</Heading>
+    </Box>
     // <div className={styles.container}>
     //   <header className={styles.header}>
     //     <h1>naokiwakata.com</h1>

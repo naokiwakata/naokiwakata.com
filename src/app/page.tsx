@@ -18,9 +18,6 @@ export const metadata: Metadata = {
 
 const { Button } = chakraTheme.components
 
-// BOX: div 
-// Stack: 縦並び
-
 export default function Page() {
   return (
     <Stack paddingTop={"16px"} paddingStart={"64px"} paddingEnd={"64px"}>

@@ -1,0 +1,11 @@
+{
+    "name": "notion-scripts",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "export-mds": "ts-node src/export-mds"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.2"
+    }
+}

@@ -12,22 +12,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up bun
-        uses: oven-sh/setup-bun@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
       - name: Generate markdowns
         env:
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
         run: |
-          bun i
-          bun run generate
+          npm install
+          npm run export-mds
         working-directory: ./scripts
 
       - name: Build
         run: |
-          bun i
-          bun run build
+          npm install
+          npm run build
         working-directory: .
 
       - name: Publish to Cloudflare Pages

@@ -19,7 +19,6 @@ const exportMarkdownsFromNotionDatabase = async () => {
 
 /** Once removes exported directory and make a new one. */
 const makeExportedDirectory = async () => {
-    await fs.rm(EXPORTED_POSTS_RELATIVE_PATH, { recursive: true })
     await fs.mkdir(EXPORTED_POSTS_RELATIVE_PATH)
 }
 

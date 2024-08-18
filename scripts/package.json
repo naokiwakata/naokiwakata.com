@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "export-mds": "ts-node src/export-mds && npm run format-mds",
-        "format-mds": "prettier --write --ignore-path .gitignore '../exported-posts/*md'"
+        "format-mds": "prettier --write --ignore-path .gitignore '../exported-contents/*md'"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -17,6 +17,7 @@
         "typescript": "^5.5.4"
     },
     "dependencies": {
+        "@notionhq/client": "^2.2.15",
         "dotenv": "^16.4.5",
         "notion-to-md": "^3.1.1",
         "prettier": "^3.3.3"

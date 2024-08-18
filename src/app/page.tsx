@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 import { Metadata } from 'next'
 import {
   theme as chakraTheme,
@@ -12,6 +14,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import path from 'path';
 
 export const metadata: Metadata = {
   title: 'naokiwakata.com',
@@ -19,7 +22,8 @@ export const metadata: Metadata = {
 
 const { Button } = chakraTheme.components
 
-export default function Page() {
+export default async function Page() {
+  const pages = await getAboutMe()
   return (
     <Box display='flex' justifyContent='center' alignItems='center'>
       <Stack padding={"16px"} maxWidth={"700px"}>
@@ -50,12 +54,9 @@ export default function Page() {
 
         <Heading as={"h2"} size={"lg"} >ABOUT ME</Heading>
 
-        <Stack paddingBottom={"24px"}>
-          <Text fontSize={"16px"}>Naoki Wakata（@wakanao_banana）のプロフィールページです</Text>
-          <Text fontSize={"16px"}>Flutter/Dart, Android/Kotlin, iOS/Swift のモバイルアプリエンジニアです</Text>
-          <Text fontSize={"16px"}>本業では月間アクティブユーザーが数十万人のAndroid/iOSのアプリ開発に運用に携わっています。また副業ではFlutterでのアプリ開発・講師業を行っています</Text>
-          <Text fontSize={"16px"}>個人では月間アクティブユーザー数が1~2万人の「ラーメン二郎好きのためのアプリ」をFlutter・Firebaseにて運用中です</Text>
-        </Stack>
+        <Text whiteSpace="pre-line" paddingBottom={"24px"} lineHeight={"18px"}>
+          {pages}
+        </Text>
 
         <Heading as={"h2"} size={"lg"} >MY APP</Heading>
 
@@ -115,17 +116,26 @@ export default function Page() {
           </HStack>
         </Stack>
 
-        <Heading as={"h2"} size={"lg"} >コミュニティ活動</Heading>
+        {/* <Heading as={"h2"} size={"lg"} >コミュニティ活動</Heading>
 
         <Stack>
           <Link href={"https://hackathon.flutteruniv.com/"}>
             <Text fontSize={"20px"} fontWeight={"bold"}>東京 Flutterハッカソン優勝</Text>
           </Link>
-        </Stack>
+        </Stack> */}
 
         <Box height={"100px"}></Box>
 
       </Stack>
     </Box>
   )
+}
+
+export async function getAboutMe() {
+  const filePath = path.join('exported-contents', 'about-me.md')
+  const content = fs.readFileSync(filePath, { encoding: 'utf-8' })
+
+  console.log('content', content)
+
+  return content
 }

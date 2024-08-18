@@ -39,11 +39,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: kosukesaigusa
+          projectName: naokiwakata.com
           directory: dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          wranglerVersion: '3'
+          gitHubToken: ${{ secrets.GH_TOKEN }}
 
       - name: Add publish URL as commit status
         uses: actions/github-script@v6

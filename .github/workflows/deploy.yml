@@ -40,7 +40,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: naokiwakata-com
-          directory: dist
+          directory: out
           gitHubToken: ${{ secrets.GH_TOKEN }}
 
       - name: Add publish URL as commit status

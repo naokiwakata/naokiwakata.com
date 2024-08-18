@@ -1,9 +1,8 @@
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { notionClient, queryDatabase } from "./notion-api"
 import { NotionPage, parseProperties } from "./parse-notion-page";
 import { EXPORTED_POSTS_RELATIVE_PATH } from "./constants";
 import fs from 'fs/promises'
-import { NotionToMarkdown } from "notion-to-md";
+import { NotionToMarkdown } from "notion-to-md/build/notion-to-md";
 
 const n2m = new NotionToMarkdown({ notionClient: notionClient })
 

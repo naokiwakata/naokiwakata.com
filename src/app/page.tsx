@@ -1,5 +1,3 @@
-import fs from 'fs'
-
 import { Metadata } from 'next'
 import {
   theme as chakraTheme,
@@ -10,11 +8,9 @@ import {
   Center,
   Text,
   Image,
-  extendTheme,
-  VStack,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import path from 'path';
+import { getAboutMe } from '@/features/notion/about-me';
 
 export const metadata: Metadata = {
   title: 'naokiwakata.com',
@@ -129,13 +125,4 @@ export default async function Page() {
       </Stack>
     </Box>
   )
-}
-
-export async function getAboutMe() {
-  const filePath = path.join('exported-contents', 'about-me.md')
-  const content = fs.readFileSync(filePath, { encoding: 'utf-8' })
-
-  console.log('content', content)
-
-  return content
 }

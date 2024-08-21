@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main
-
+  # workflow_dispatch:
+  # schedule:
+  #   # 毎日午前 0 時に実行する
+  #   - cron: '0 0 * * *'
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
